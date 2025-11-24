@@ -1,0 +1,109 @@
+{
+  "name": "github-star",
+  "displayName": "GitHub Star",
+  "version": "0.0.1",
+  "publisher": "SunBK201",
+  "author": {
+    "name": "SunBK201",
+    "email": "sunbk201gm@gmail.com"
+  },
+  "description": "Display GitHub Star count in VS Code status bar",
+  "keywords": [
+    "git",
+    "github",
+    "star"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "homepage": "https://github.com/SunBK201/vscode-github-star",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SunBK201/vscode-github-star.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SunBK201/vscode-github-star/issues"
+  },
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "github-star.openGitHub",
+        "title": "Open GitHub Repository"
+      },
+      {
+        "command": "github-star.refresh",
+        "title": "Refresh GitHub Stars"
+      },
+      {
+        "command": "github-star.refreshAndOpen",
+        "title": "Refresh and Open GitHub Repository"
+      },
+      {
+        "command": "github-star.handleClick",
+        "title": "Handle Status Bar Click"
+      }
+    ],
+    "configuration": {
+      "title": "GitHub Star",
+      "properties": {
+        "github-star.githubToken": {
+          "type": "string",
+          "default": "",
+          "description": "GitHub personal access token (optional, to avoid rate limits)"
+        },
+        "github-star.refreshInterval": {
+          "type": "number",
+          "default": 600000,
+          "description": "Auto refresh interval in milliseconds (default: 10 minutes)"
+        },
+        "github-star.clickBehavior": {
+          "type": "string",
+          "default": "refresh",
+          "enum": [
+            "refresh",
+            "openGitHub",
+            "refreshAndOpen"
+          ],
+          "enumDescriptions": [
+            "Refresh star count",
+            "Open GitHub repository page",
+            "Refresh star count and open GitHub page"
+          ],
+          "description": "Action to perform when clicking the status bar item"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.47.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
+  }
+}
