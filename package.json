@@ -65,8 +65,8 @@
         },
         "github-star.refreshInterval": {
           "type": "number",
-          "default": 600000,
-          "description": "Auto refresh interval in milliseconds (default: 10 minutes)"
+          "default": 3600000,
+          "description": "Auto refresh interval in milliseconds (default: 1 hour)"
         },
         "github-star.clickBehavior": {
           "type": "string",
