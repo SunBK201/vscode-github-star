@@ -2,6 +2,8 @@
 
 A VS Code extension that displays the GitHub star count of the current project in the status bar.
 
+![star](docs/bar.png)
+
 ## Features
 
 - Automatically detects GitHub repository in current workspace
